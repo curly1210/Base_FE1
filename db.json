@@ -1,4 +1,29 @@
 {
-  "products": [],
+  "products": [
+    {
+      "name": "sua san pham",
+      "price": 21312321321,
+      "status": true,
+      "image": "https://cdn.tgdd.vn/Products/Images/42/329135/iphone-16-xanh-mong-ket-thumbnew-600x600.png",
+      "category": "Computer",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Samsung",
+      "price": 9999,
+      "status": false,
+      "image": "https://cdn.tgdd.vn/Products/Images/42/329135/iphone-16-xanh-mong-ket-thumbnew-600x600.png",
+      "category": "Computer"
+    },
+    {
+      "name": "cuong dep trai",
+      "price": 23000,
+      "status": true,
+      "image": "https://cdn.tgdd.vn/Products/Images/42/333359/samsung-galaxy-s25-plus-blue-thumb-600x600.jpg",
+      "category": "Phone",
+      "id": 3
+    }
+  ],
   "users": []
 }

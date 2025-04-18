@@ -1,0 +1,35 @@
+<h1>Danh sách sản phẩm</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Tên sản phẩm</th>
+      <th scope="col">Giá bán</th>
+      <th scope="col">Trạng thái</th>
+      <th scope="col">Hình ảnh</th>
+      <th scope="col">Danh mục</th>
+      <th scope="col">Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of products; let i = index">
+      <th>{{ i + 1 }}</th>
+      <td>{{ item.name }}</td>
+      <td>{{ item.price }}</td>
+      <td>{{ item.status ? "Còn hàng" : "Hết hàng" }}</td>
+      <td><img width="70" src="{{ item.image }}" alt="" /></td>
+      <td>{{ item.category }}</td>
+      <td>
+        <div>
+          <button (click)="onRemove(item.id)" class="btn btn-danger me-2">
+            Xóa
+          </button>
+          <a [routerLink]="[item.id, 'edit']">
+            <button class="btn btn-primary">Sửa</button>
+          </a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

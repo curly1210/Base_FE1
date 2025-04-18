@@ -1,0 +1,129 @@
+<h1>Thêm sản phẩm</h1>
+
+<form [formGroup]="productForm" (ngSubmit)="handleSubmit()">
+  <div class="mb-3">
+    <label class="form-label">Tên sản phẩm</label>
+    <input
+      formControlName="name"
+      type="text"
+      class="form-control"
+      name="name"
+    />
+    <div
+      *ngIf="
+        productForm.get('name')?.invalid && productForm.get('name')?.touched
+      "
+    >
+      <span
+        *ngIf="productForm.get('name')?.errors?.['required']"
+        class="text-danger"
+        >Không để trống</span
+      >
+      <span
+        *ngIf="productForm.get('name')?.errors?.['minlength']"
+        class="text-danger"
+        >5 kí tự</span
+      >
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Giá bán</label>
+    <input
+      formControlName="price"
+      type="number"
+      class="form-control"
+      name="price"
+    />
+    <div
+      *ngIf="
+        productForm.get('price')?.invalid && productForm.get('price')?.touched
+      "
+    >
+      <span
+        *ngIf="productForm.get('price')?.errors?.['required']"
+        class="text-danger"
+        >Không để trống giá bán</span
+      >
+      <span
+        *ngIf="productForm.get('price')?.errors?.['min']"
+        class="text-danger"
+        >Min 100</span
+      >
+    </div>
+  </div>
+  <div class="mb-3">
+    <div class="form-check">
+      <input
+        formControlName="status"
+        class="form-check-input"
+        [value]="true"
+        type="radio"
+        name="status"
+      />
+      <label class="form-check-label" for="radioDefault1">Còn hàng</label>
+    </div>
+    <div class="form-check">
+      <input
+        formControlName="status"
+        class="form-check-input"
+        [value]="false"
+        type="radio"
+        name="status"
+      />
+      <label class="form-check-label" for="radioDefault1">Hết hàng</label>
+    </div>
+    <div
+      *ngIf="
+        productForm.get('status')?.invalid && productForm.get('status')?.touched
+      "
+    >
+      <span
+        *ngIf="productForm.get('status')?.errors?.['required']"
+        class="text-danger"
+        >Không để trống giá bán</span
+      >
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Hình ảnh</label>
+    <input
+      formControlName="image"
+      type="text"
+      class="form-control"
+      name="image"
+    />
+    <div
+      *ngIf="
+        productForm.get('image')?.invalid && productForm.get('image')?.touched
+      "
+    >
+      <span
+        *ngIf="productForm.get('image')?.errors?.['required']"
+        class="text-danger"
+        >Không để trống giá bán</span
+      >
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Danh mục: </label>
+    <select formControlName="category" class="form-select">
+      <option value="Phone">Điện thoại</option>
+      <option value="Computer">Máy tính</option>
+    </select>
+    <div
+      *ngIf="
+        productForm.get('category')?.invalid &&
+        productForm.get('category')?.touched
+      "
+    >
+      <span
+        *ngIf="productForm.get('category')?.errors?.['required']"
+        class="text-danger"
+        >Không để trống giá bán</span
+      >
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
